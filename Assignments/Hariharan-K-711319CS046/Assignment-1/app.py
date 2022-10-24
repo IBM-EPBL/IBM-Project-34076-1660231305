@@ -1,14 +1,7 @@
 from urllib import request
 from flask import Flask, redirect, url_for, render_template,request
-from flask_db2 import DB2
 
-#Initialization and global variables
 app = Flask(__name__)
-db = DB2(app)
-
-#Scheduler Part
-
-#Wrapper Functions
 
 #Routes
 @app.route('/')
