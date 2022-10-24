@@ -3,7 +3,7 @@ from flask import Flask, redirect, url_for, render_template,request
 
 app = Flask(__name__)
 
-#Routes
+#Route
 @app.route('/')
 def home():
     return "Hi"
