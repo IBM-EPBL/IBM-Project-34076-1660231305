@@ -13,9 +13,6 @@ def sendMailThroughSendGrid(body,reciever):
         sg = SendGridAPIClient(key)
         response = sg.send(message)
         print(response.status_code)
-        print(response.body)
-        print(response.headers)
+        print("success")
     except Exception as e:
         print(e)
-
-sendMailThroughSendGrid("Hi","santymurugan8@gmail.com")

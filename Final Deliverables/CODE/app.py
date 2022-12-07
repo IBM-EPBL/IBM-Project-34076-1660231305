@@ -114,5 +114,5 @@ def search():
 if __name__ == "__main__":
     #t1 = threading.Thread(target=schedule)
     #t1.start()
-    app.apscheduler.add_job(func = sample,trigger = 'cron',hour='1,4,7,10,14,19,21,23',id="0")
+    app.apscheduler.add_job(func = sample,trigger = 'cron',hour='1,4,7,10,14,18,19,21,23',id="0")
     app.run(debug=True,host="0.0.0.0")

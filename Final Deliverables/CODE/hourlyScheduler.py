@@ -22,7 +22,7 @@ def sample():
     insert_sql = "insert into news_data (TITLE,CATEGORY,LINK,SOURCE) values(?,?,?,?)"
     for i in articles:
         prep_stmt = prepare(dbCon, insert_sql)
-        bind_param(prep_stmt, 1, i['title'])
+        bind_param(prep_stmt, 1, i['title'][:300])
         bind_param(prep_stmt, 2, i['category'])
         bind_param(prep_stmt, 3, i['link'])
         bind_param(prep_stmt, 4, i['source_id'])
