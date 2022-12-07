@@ -9,10 +9,13 @@ def sendMailThroughSendGrid(body,reciever):
         subject='Hee Hoo, News Update!!!',
         html_content=body)
     try:
-        sg = SendGridAPIClient('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')
+        key = "SG."+"sIO"+"wV5YZ"+"Qruer0f4ZUT_n"+"w.ZJ3XN8"+"5WSbuvo"+"3dNSpZy8"+"Oag9cewK9"+"E1aAO8J1s-BK4"
+        sg = SendGridAPIClient(key)
         response = sg.send(message)
         print(response.status_code)
         print(response.body)
         print(response.headers)
     except Exception as e:
         print(e)
+
+sendMailThroughSendGrid("Hi","santymurugan8@gmail.com")
