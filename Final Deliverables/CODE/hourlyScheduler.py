@@ -15,15 +15,19 @@ def sample():
             if any(check in dict['CATEGORY'].split(",") for check in i['category']):
                 l.append(i)
         sendMailThroughSendGrid(getHTMLBody(l if len(l)<=20 else l[:20]),dict['USERNAME'])
+        print(dict['USERNAME'])
         dict = fetch_assoc(stmt)
     delete_sql = "delete from news_data"
     del_stmt = prepare(dbCon,delete_sql)
     execute(del_stmt)
     insert_sql = "insert into news_data (TITLE,CATEGORY,LINK,SOURCE) values(?,?,?,?)"
     for i in articles:
-        prep_stmt = prepare(dbCon, insert_sql)
-        bind_param(prep_stmt, 1, i['title'][:300])
-        bind_param(prep_stmt, 2, i['category'])
-        bind_param(prep_stmt, 3, i['link'])
-        bind_param(prep_stmt, 4, i['source_id'])
-        execute(prep_stmt)
+        try:
+            prep_stmt = prepare(dbCon, insert_sql)
+            bind_param(prep_stmt, 1, i['title'][:100])
+            bind_param(prep_stmt, 2, i['category'])
+            bind_param(prep_stmt, 3, i['link'][:100])
+            bind_param(prep_stmt, 4, i['source_id'])
+            execute(prep_stmt)
+        except:
+            print(i['title'])        

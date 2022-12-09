@@ -136,7 +136,7 @@
     <br>
     <br>    
     <label>Do you wish to recieve news update?</label>
-    <input type="text" name="email_pref" value='{{email_pref}}' onclick="handleEmail()" id="email_pref" readonly style="width:30px;"/>
+    <input type="text" name="email_pref" value='{{"false" if email_pref == None or email_pref == "" else email_pref}}' onclick="handleEmail()" id="email_pref" readonly style="width:30px;"/>
     <br>
     <br>
     <a href="{{ url_for('home') }}"><input type="button" value="cancel" class = "failure-btn"/></a>
